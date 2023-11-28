@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Registro Bancário</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Registro Bancário</h1>
+
+  <div class="transactions">
+    <h2>Histórico de Transações</h2>
+    <ul id="transaction-list"></ul>
+  </div>
+
+  <div class="add-transaction">
+    <h2>Adicionar Transação</h2>
+    <label for="transaction-type">Tipo:</label>
+    <select id="transaction-type">
+      <option value="deposit">Depósito</option>
+      <option value="withdrawal">Saque</option>
+    </select>
+    <label for="transaction-amount">Valor:</label>
+    <input type="number" id="transaction-amount">
+    <button onclick="addTransaction()">Adicionar Transação</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
