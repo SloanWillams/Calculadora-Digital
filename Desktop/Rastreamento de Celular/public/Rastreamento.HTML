@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rastreamento de Localização</title>
+</head>
+
+<body>
+  <h1>Rastreamento de Localização</h1>
+  <p>Precione o botão para obter a Localização</p>
+  <button onclick="Geolocation()">Obter Localização</button>
+  <p id="demo"></p>
+  <script>
+    function Geolocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        document.getElementById("demo").innerHTML = "Geolocalização não é suportada neste navegador.";
+      }
+    }
+
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      document.getElementById("demo").innerHTML = "latitude: " + latitude + "<br>longitude" + longitude;
+
+      // Aqui, você pode enviar os dados de localização para um servidor ou fazer qualquer outra ação desejada.
+    }
+
+    function showError(Error) {
+      switch (error.code) {
+        case ERROR.PERMISSION_DENIED:
+          document.getElementById("demo").innerHTML = "Usuário negou a solicitação de geolocalização.";
+          break;
+        case error.POSITION_UNAVAILABLE:
+          document.getElementById("demo").innerHTML = "Informações de localização indisponíveis.";
+          break;
+        case error.TIMEOUT:
+          document.getElementById("demo").innerHTML = "Tempo de solicitação de geolocalização expirado.";
+          break;
+        case error.UNKNOWN_ERROR:
+          document.getElementById("demo").innerHTML = "Erro desconhecido ao obter a localização.";
+          break;
+      }
+    }
+  </script>
+</body>
+
+</html>
