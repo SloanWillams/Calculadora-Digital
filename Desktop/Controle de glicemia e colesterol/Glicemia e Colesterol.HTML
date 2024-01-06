@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Glicemia e Colesterol</title>
+  <script>
+    function verificar() {
+      // Obter os valores de glicemia e colesterol do formulário
+      let nivelGlicemia = parseFloat(document.getElementById('nivelGlicemia').value);
+      let nivelColesterol = parseFloat(document.getElementById('nivelColesterol').value);
+
+      // Verificar o nível de glicemia
+      let mensagemGlicemia = "";
+      if (nivelGlicemia < 100) {
+        mensagemGlicemia = "Nível de glicemia abaixo do normal.";
+      } else if (nivelGlicemia >= 100 && nivelGlicemia <= 125) {
+        mensagemGlicemia = "Nível de glicemia pré-diabético.";
+      } else {
+        mensagemGlicemia = "Nível de glicemia elevado. Consulte um médico.";
+      }
+
+      // Verificar o nível de colesterol
+      let mensagemColesterol = "";
+      if (nivelColesterol < 200) {
+        mensagemColesterol = "Nível de colesterol dentro do normal.";
+      } else if (nivelColesterol >= 200 && nivelColesterol <= 239) {
+        mensagemColesterol = "Nível de colesterol elevado.";
+      } else {
+        mensagemColesterol = "Nível de colesterol muito elevado. Consulte um médico.";
+      }
+
+      // Exibir os resultados
+      document.getElementById('resultadoGlicemia').innerText = mensagemGlicemia;
+      document.getElementById('resultadoColesterol').innerText = mensagemColesterol;
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Controle de Glicemia e Colesterol</h1>
+  <form>
+    <label for="nivelGlicemia">Nível de Glicemia:</label>
+    <input type="number" id="nivelGlicemia" name="nivelGlicemia" placeholder="Digite o nível de glicemia"><br><br>
+
+    <label for="nivelColesterol">Nível de Colesterol:</label>
+    <input type="number" id="nivelColesterol" name="nivelColesterol" placeholder="Digite o nível de colesterol"><br><br>
+
+    <button type="button" onclick="verificar()">Verificar</button>
+  </form>
+
+  <h2>Resultados:</h2>
+  <div id="resultadoGlicemia"></div>
+  <div id="resultadoColesterol"></div>
+</body>
+
+</html>
