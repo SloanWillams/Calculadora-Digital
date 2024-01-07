@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <html>
+  <title>Sistema de Segurança com Câmeras nas Ruas</title>
+</head>
+
+<body>
+  <h1>Sistema de Segurança com Câmeras nas Ruas</h1>
+  <div id="cameraFeed">
+    <img src="caminho/da/imagem" alt="Feed da Câmera">
+  </div>
+  <button onclick="capturarImagem()">Capturar Imagem</button>
+
+  <script>
+    function capturarImagem() {
+      // Aqui você pode adicionar código JavaScript para capturar uma imagem da câmera
+      // Isso pode envolver a utilização de JavaScript para interagir com a câmera, mas não pode ser feito apenas com HTML
+      alert("Capturando imagem...");
+    }
+  </script>
+
+  <video id="videoElement" width="640" height="480" autoplay></video>
+
+  <script>
+    const video = document.getElementById('videoElement');
+
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+          video.srcObject = stream;
+        })
+        .catch(function (error) {
+          console.error('Erro ao acessar a câmera: ', error);
+        });
+    }
+  </script>
+
+</body>
+
+</html>
